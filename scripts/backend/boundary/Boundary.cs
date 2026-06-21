@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Boundary {
     private readonly Dictionary<ControllerId, IController> _controllers = [];
@@ -31,9 +32,11 @@ public class Boundary {
 
     private void _InitServices() {
         _services[ServiceId.Player] = new PlayerService(_repositories[RepositoryId.Player] as PlayerRepository);
+        _services[ServiceId.Persistence] = new PersistenceService(_repositories.Values.ToList());
     }
 
     private void _InitControllers() {
         _controllers[ControllerId.Player] = new PlayerController(_services[ServiceId.Player] as PlayerService);
+        _controllers[ControllerId.Persistence] = new PersistenceController(_services[ServiceId.Persistence] as PersistenceService);
     }
 }

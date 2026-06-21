@@ -20,4 +20,9 @@ public class PlayerTest {
     public void ThisTestFailsToTestGitHubActions() {
         Assert.True(false);
     }
+    
+    [Fact]
+    public void ThisTestPassesToTestGitHubActions() {
+        Assert.True(true);
+    }
 }

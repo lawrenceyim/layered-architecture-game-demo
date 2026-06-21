@@ -15,9 +15,4 @@ public class PlayerTest {
         Assert.Equal(expectedHealth, repo.Health);
         Assert.Equal(expectedAmountIncreased, amountIncreased);
     }
-
-    [Fact]
-    public void ThisTestFailsToTestGitHubActions() {
-        Assert.True(false);
-    }
 }

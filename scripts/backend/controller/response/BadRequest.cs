@@ -1,4 +1,5 @@
 public record BadRequest(
-    StatusCode Status = StatusCode.BadRequest,
-    string Message = "Bad Request"
-) : IResponse { }
+    string Message = ""
+) : IResponse {
+    public StatusCode Status { get; init; } = StatusCode.BadRequest;
+}

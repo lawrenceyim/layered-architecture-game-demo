@@ -1,8 +1,15 @@
 <Project Sdk="Godot.NET.Sdk/4.7.0">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
-    <EnableDynamicLoading>true</EnableDynamicLoading>
-    <RootNamespace>layeredarchitecturedemo</RootNamespace>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework Condition=" '$(GodotTargetPlatform)' == 'android' ">net9.0</TargetFramework>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <RootNamespace>layeredarchitecturedemo</RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <Folder Include="scripts\backend\"/>
+        <Folder Include="scripts\frontend\"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="scripts\Tests\**\*.cs"/>
+    </ItemGroup>
 </Project>

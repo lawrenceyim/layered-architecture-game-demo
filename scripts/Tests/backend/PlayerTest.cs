@@ -1,18 +1,16 @@
-using Xunit;
-
 namespace Tests;
 
 public class PlayerTest {
     [Fact]
-    public void IncreasePlayerHealthTest() {
-        PlayerRepository repo = new PlayerRepository();
-        PlayerService service = new PlayerService(repo);
-        repo.MaxHealth = 100;
-        repo.Health = 90;
-        int expectedHealth = 100;
-        int expectedAmountIncreased = 10;
+    public void PlayerService_IncreaseHealth_Test() {
+        const int expectedHealth = 100;
+        const int expectedAmountIncreased = 10;
+        PlayerRepository repository = new();
+        PlayerService service = new(repository);
+        repository.MaxHealth = 100;
+        repository.Health = 90;
         int amountIncreased = service.IncreaseHealth(20);
-        Assert.Equal(expectedHealth, repo.Health);
+        Assert.Equal(expectedHealth, repository.Health);
         Assert.Equal(expectedAmountIncreased, amountIncreased);
     }
 }
